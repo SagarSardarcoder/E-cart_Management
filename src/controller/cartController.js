@@ -50,20 +50,6 @@ const createCart = async (req, res) => {
 
         if (!findCartId) {
             if ((!items[0].quantity) || items[0].quantity == 0) items[0].quantity = 1
-            if (!items) {
-                let newCart = {
-                    items: [],
-                    totalPrice: 0,
-                    totalItems: 0,
-                    userId: userId,
-                };
-
-                let createCart = await cartModel.create(newCart);
-                res.status(201).send({
-                    status: true, message: "Empty Cart Created", data: createCart,
-                });
-            }
-
             if (items) {
 
                 let productId = items[0].productId;

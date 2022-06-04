@@ -84,21 +84,6 @@ const userRegister = async function (req, res) {
         if (!pincodeValid.test(address.billing.pincode)) return res.status(400).send({ status: false, message: "Billing pincode is incorrect." });
 
 
-        if (!isValidData(address.billing.street)) {
-            return res.status(400).send({ status: false, message: "Billing street is required." });
-        }
-
-        if (!isValidData(address.billing.city)) {
-            return res.status(400).send({ status: false, message: "Billing city is required." });
-        }
-
-        if (!isValidData(address.billing.pincode)) {
-            return res.status(400).send({ status: false, message: "Billing pincode is required." });
-        }
-
-        if (!pincodeValid.test(address.billing.pincode)) {
-            return res.status(400).send({ status: false, message: "Billing pincode is incorrect." });
-        }
 
         let files = req.files;
 
